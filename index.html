@@ -11,24 +11,9 @@
 /* ------------------------------------- */
 /* Estilos Gerais e Topo */
 /* ------------------------------------- */
-.logo-francal {
-    width: 500px; /* Ajuste o tamanho da largura */
-    height: 300px; /* Ajuste o tamanho da altura (manter proporção é bom) */
-    /* *** LINHA CORRIGIDA PARA HOSPEDAGEM EXTERNA (GitHub Pages, etc.) ***
-    O "./" garante que ele procure a imagem na pasta raiz.
-    Caso não funcione, use o caminho absoluto: url('/NOME-DO-REPOSITORIO/logotipo-atos.png')
-    */
-    background-image: url('./logotipo-atos.png'); 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 12px;
-    margin: 0 auto;
-}
 
 body {
     font-family: Arial, sans-serif;
-    /* Reduz o padding para maximizar o espaço em telas pequenas */
     padding: 10px; 
     margin: 0;
     background-color: #edf1f4;
@@ -36,21 +21,34 @@ body {
 }
 .top-barra {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Altera para coluna para empilhar FRANCAL e DISTRIBUIDORA */
+    align-items: center; /* Centraliza horizontalmente */
     justify-content: center;
-    gap: 12px;
     width: 100%;
     background-color: #002556;
     padding: 10px 0;
     margin-top: 0;
     position: relative;
 }
-.top-barra span {
+.titulo-principal-empresa {
     color: white;
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.2cm;
+    font-family: Arial, sans-serif; /* Fonte Arial */
+    font-size: 1.0cm; /* Destaque */
+    font-weight: bold; /* Adicionado para destaque */
     text-shadow: 1px 1px 3px #001d45;
+    margin: 0; /* Remove margem padrão */
+    line-height: 1; /* Ajusta a altura da linha */
 }
+.subtitulo-empresa {
+    color: white;
+    font-family: Arial, sans-serif; /* Fonte Arial */
+    font-size: 0.6cm; /* Menor */
+    margin: 0; /* Remove margem padrão */
+    white-space: nowrap; /* Impede quebra de linha */
+    text-align: center; /* Garante que o texto fique centralizado */
+    margin-bottom: 5px; /* Espaçamento abaixo do subtítulo */
+}
+
 
 /* NOVO ESTILO PARA O MARQUEE (ROLAGEM AUTOMÁTICA) */
 .slogan-carrossel {
@@ -92,7 +90,6 @@ body {
 /* FIM DO NOVO ESTILO */
 
 h1 {
-    /* Ajustei a margem superior para dar espaço ao carrossel */
     margin-top: 10px;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -131,7 +128,6 @@ h1 {
     font-size: 1.5em;
     color: #888;
     transition: color 0.3s;
-    /* Posicionamento absoluto para telas pequenas */
     position: absolute; 
     top: 5px;
     right: 5px;
@@ -151,23 +147,20 @@ h1 {
     background-color: #ffffff;
     color: #000000;
     gap: 15px;
-    position: relative; /* Necessário para posicionar o favorito-botao */
-    /* Garante que o item tenha um mínimo de altura para toque */
+    position: relative;
     min-height: 100px; 
 }
 .produto img {
-    width: 120px; /* Reduz o tamanho da imagem em telas menores */
+    width: 120px;
     height: auto;
     margin-right: 10px;
-    flex-shrink: 0; /* Impede que a imagem encolha */
+    flex-shrink: 0;
 }
-/* Estilo para o bloco de texto (informações) do produto */
 .produto > div {
     flex-grow: 1;
-    padding-right: 30px; /* Espaço para o botão de favorito */
+    padding-right: 30px;
 }
 
-/* Ajuste para que o texto do produto não quebre */
 .produto strong {
     display: block;
     word-wrap: break-word;
@@ -179,35 +172,34 @@ h1 {
 /* ------------------------------------- */
 .busca-container {
     margin-bottom: 10px; 
-    /* Garante que o input e os botões fiquem empilhados em duas linhas */
     display: flex; 
-    flex-direction: column; /* Força empilhamento */
+    flex-direction: column;
 }
 #busca {
     padding: 10px;
-    width: 100%; /* Ocupa toda a largura, garantido! */
+    width: 100%;
     font-size: 1em;
     height: 42px;
     box-sizing: border-box;
-    margin-bottom: 10px; /* Espaço entre a busca e os botões */
+    margin-bottom: 10px;
 }
 
 /* Contêiner dos botões de ação (Lupa e Olho) */
 .botoes-acao {
     display: flex;
-    justify-content: flex-start; /* Alinha os botões à esquerda */
+    justify-content: flex-start;
     gap: 10px;
-    margin-bottom: 20px; /* Espaço antes da linha de categorias */
-    width: 100%; /* Garante que o container use a largura total */
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .busca-botao, #btn-toggle-valor {
     height: 42px;
-    padding: 0 15px; /* Adicionado padding horizontal para o texto */
+    padding: 0 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1em; /* Ajustado para 1em para caber o texto */
+    font-size: 1em;
     border-radius: 6px;
     cursor: pointer;
     flex-shrink: 0;
@@ -218,7 +210,6 @@ h1 {
     background-color: #002556;
     color: white;
     border: none;
-    /* Permite que o botão de PESQUISAR ocupe o espaço disponível se quiser */
     flex-grow: 1; 
 }
 
@@ -228,7 +219,6 @@ h1 {
     color: #002556;
     border: 1px solid #ccc;
     transition: background-color 0.3s, color 0.3s;
-    /* Permite que o botão de VALORES ocupe o espaço disponível se quiser */
     flex-grow: 1; 
 }
 #btn-toggle-valor:hover {
@@ -237,9 +227,9 @@ h1 {
 
 /* Estilo para ocultar o valor por padrão */
 .produto .valor-produto {
-    display: none; /* Esconde o valor por padrão */
+    display: none;
     font-weight: bold;
-    color: #b22222; /* Cor de destaque para o valor */
+    color: #b22222;
 }
 
 /* ------------------------------------- */
@@ -268,8 +258,8 @@ h1 {
     position: fixed;
     top: 0;
     right: 0;
-    width: 80%; /* Usa porcentagem para melhor ajuste */
-    max-width: 300px; /* Limite de largura para desktop */
+    width: 80%;
+    max-width: 300px;
     height: 100%;
     background-color: #f7f7f7;
     box-shadow: -4px 0 10px rgba(0,0,0,0.3);
@@ -280,7 +270,7 @@ h1 {
     transition: transform 0.3s ease-in-out;
 }
 #menu-lateral.fechado {
-    transform: translateX(100%); /* Esconde 100% da largura, mais seguro que valor fixo */
+    transform: translateX(100%);
 }
 
 .menu-header {
@@ -304,12 +294,11 @@ h1 {
     gap: 5px;
     margin-bottom: 10px;
 }
-/* Botões no menu lateral ocupam metade da largura em mobile */
 #menu-botoes-categorias .botao {
     padding: 8px 10px;
     font-size: 0.85em;
     margin: 0;
-    flex: 1 1 48%; /* Permite 2 botões por linha */
+    flex: 1 1 48%;
     text-align: center;
 }
 
@@ -368,11 +357,12 @@ hr {
 /* Responsividade (Ajustes Adicionais) */
 /* ------------------------------------- */
 @media (max-width: 600px) {
-    /* Topo: Logo menor para ganhar espaço */
-    .logo-francal {
-        width: 150px;
-        height: 150px;
-        margin-bottom: 0;
+    /* Topo: Texto menor para telas menores */
+    .titulo-principal-empresa {
+        font-size: 1cm;
+    }
+    .subtitulo-empresa {
+        font-size: 0.4cm;
     }
 
     /* Botões principais de aba: Ocupam a largura total e se empilham */
@@ -384,7 +374,7 @@ hr {
     }
     #botoes-categorias .botao {
         margin: 5px 0;
-        flex: 1 1 48%; /* Permite 2 botões por linha, com um pequeno gap */
+        flex: 1 1 48%;
         text-align: center;
     }
 
@@ -404,7 +394,8 @@ hr {
 </head>
 <body>
 <div class="top-barra">
-    <div class="logo-francal"></div>
+    <h1 class="titulo-principal-empresa">FRANCAL</h1>
+    <h2 class="subtitulo-empresa">DISTRIBUIDORA</h2>
     <div id="menu-icon-container">
         <button id="menu-icon" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
@@ -37441,7 +37432,7 @@ function filtrarPorTamanho() {
         const tamanhoProduto = el.dataset.tamanho ? el.dataset.tamanho.toLowerCase() : '';
         const categoriaProduto = el.dataset.categoria;
 
-        // *** LÓGICA DE CATEGORIA AJUSTADA PARA A BUSCA GERAL (PRINCIPAL MUDANÇA) ***
+        // *** LÓGICA DE CATEGORIA AJUSTADA ***
         // A categoria é visível se:
         // 1. A busca geral estiver VAZIA E a categoria do produto for a categoria ativa. OU
         // 2. A busca geral estiver ATIVA (nesse caso, ignora o filtro de aba para o produto ser incluído na busca).
