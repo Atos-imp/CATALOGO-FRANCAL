@@ -40,7 +40,7 @@
             }
             .header h1 { 
                 margin: 0 0 15px; 
-                font-size: 22px; 
+                font-size: 20px; 
                 text-align: center; 
                 letter-spacing: 1.5px;
                 font-weight: 700;
@@ -48,7 +48,7 @@
             }
             .header h1 i {
                 color: var(--secondary);
-                margin: 0 8px;
+                margin: 0 5px;
             }
 
             .busca-container { background: rgba(0,0,0,0.15); padding: 12px; border-radius: 15px; }
@@ -60,9 +60,10 @@
 
             .filtros-tamanho { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 0 5px; }
             .filtros-tamanho label { font-size: 11px; font-weight: 600; color: #fff; letter-spacing: 0.5px; }
-            .filtros-tamanho input { width: 60px; padding: 5px; border-radius: 8px; border: 2px solid var(--secondary); text-align: center; font-size: 12px; outline: none; }
+            .filtros-tamanho input { width: 65px; padding: 5px; border-radius: 8px; border: 2px solid var(--secondary); text-align: center; font-size: 12px; outline: none; }
 
             .filtros-abas { display: flex; overflow-x: auto; gap: 8px; padding: 15px 0 5px; scrollbar-width: none; }
+            .filtros-abas::-webkit-scrollbar { display: none; }
             .btn-filtro { padding: 8px 18px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.4); background: transparent; color: white; white-space: nowrap; font-size: 12px; cursor: pointer; transition: all 0.2s; }
             .btn-filtro.active { background: var(--secondary); color: var(--accent); font-weight: 700; border-color: var(--secondary); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
 
@@ -83,7 +84,6 @@
             .btn-favorito { 
                 position: absolute; top: 8px; left: 8px; background: rgba(255,255,255,0.9); border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; z-index: 5; color: #ccc; border: 1px solid #eee; transition: all 0.2s;
             }
-            /* Estrela Favorito com a cor amarela da seleção */
             .btn-favorito.active { color: #ffbc00; border-color: #ffbc00; background: var(--accent); }
 
             .card-detalhes { flex: 1; padding: 12px; display: flex; flex-direction: column; }
@@ -110,7 +110,6 @@
                 position: absolute; bottom: 20px; color: white; font-size: 12px; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 20px;
             }
 
-            /* Botão de relatório combinando Azul e Amarelo */
             .btn-relatorio { 
                 position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 15px 30px; border-radius: 30px; font-weight: 600; border: 2px solid var(--secondary); z-index: 1000; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 25px rgba(0,39,118,0.3); cursor: pointer; transition: transform 0.2s;
             }
@@ -125,11 +124,11 @@
         </div>
 
         <div class="header">
-            <h1><i class="fa-solid fa-troféu fa-trophy"></i> BRASIL - COPA DO MUNDO <i class="fa-solid fa-soccer-ball fa-football"></i></h1>
+            <h1><i class="fa-solid fa-trophy"></i> BRASIL - COPA DO MUNDO <i class="fa-solid fa-earth-americas"></i></h1>
             <div class="busca-container">
                 <div class="input-wrapper">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="inputBusca" placeholder="Buscar produto, ref ou código da Seleção..." onkeyup="filtrarGeral()">
+                    <input type="text" id="inputBusca" placeholder="Buscar produto, ref ou código..." onkeyup="filtrarGeral()">
                 </div>
                 <div class="filtros-tamanho">
                     <label>FILTRAR TAMANHO:</label>
@@ -28731,12 +28730,22 @@
                     let searchContent = card.getAttribute('data-search').toLowerCase();
                     let cat = card.getAttribute('data-cat');
                     let idCard = card.getAttribute('data-id');
-                    let tams = card.getAttribute('data-tamanhos').split(',').map(t => parseInt(t) || 0);
+
+                    // Converte a string de tamanhos em uma lista de números válidos
+                    let tams = card.getAttribute('data-tamanhos').split(',').map(t => parseInt(t.trim()) || 0);
+
+                    // Verifica se pelo menos um tamanho do produto está dentro do range digitado
                     let temTamanhoRange = tams.some(t => t >= min && t <= max);
+
                     let atendeBusca = searchContent.includes(busca);
                     let atendeCat = (categoriaAtual === 'Todos' || cat === categoriaAtual);
                     let atendeFav = !apenasFavoritos || favoritos.includes(idCard);
-                    card.style.style.display = (atendeBusca && atendeCat && atendeFav && temTamanhoRange) ? 'flex' : 'none';
+
+                    if (atendeBusca && atendeCat && atendeFav && temTamanhoRange) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
                 });
             }
 
