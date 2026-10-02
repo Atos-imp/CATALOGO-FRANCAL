@@ -26,6 +26,8 @@
                 --border-color: #e2e8f0;
                 --francal-blue: #101a35;
                 --francal-red: #e62328;
+                --outubro-rosa-primary: #d63384;
+                --outubro-rosa-dark: #881337;
             }
 
             body.tema-calcados {
@@ -43,24 +45,66 @@
                 padding-bottom: 100px;
             }
 
-            /* Tela de Seleção Inicial Elegante */
+            /* Tela de Seleção Inicial - Tema Outubro Rosa */
             #tela-selecao {
                 display: flex; flex-direction: column; align-items: center; justify-content: center;
-                min-height: 100vh; background: radial-gradient(circle, #1a2a4a 0%, #0a1128 100%); padding: 20px; text-align: center;
+                min-height: 100vh; 
+                background: radial-gradient(circle, #4a1228 0%, #1e0510 100%); 
+                padding: 20px; text-align: center;
+                position: relative;
             }
             #tela-selecao h1 { 
-                color: white; margin-bottom: 8px; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;
+                color: white; margin-bottom: 6px; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;
             }
             #tela-selecao p {
-                color: #94a3b8; margin-bottom: 40px; font-size: 15px;
+                color: #fbcfe8; margin-bottom: 25px; font-size: 15px;
             }
+
+            /* Card da Mensagem do Outubro Rosa */
+            .outubro-rosa-banner {
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(244, 114, 182, 0.3);
+                backdrop-filter: blur(12px);
+                border-radius: 20px;
+                padding: 20px 24px;
+                max-width: 420px;
+                margin-bottom: 30px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            }
+            .outubro-rosa-banner .laco-icon {
+                font-size: 38px;
+                color: #f472b6;
+                margin-bottom: 10px;
+                display: inline-block;
+                filter: drop-shadow(0 2px 8px rgba(244,114,182,0.5));
+            }
+            .outubro-rosa-banner h2 {
+                color: #fce7f3;
+                font-size: 18px;
+                font-weight: 700;
+                margin: 0 0 8px 0;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            .outubro-rosa-banner p {
+                color: #fbcfe8;
+                font-size: 13px;
+                line-height: 1.5;
+                margin: 0;
+            }
+
+            /* Botões do Menu */
             .btn-menu {
-                width: 100%; max-width: 320px; padding: 20px; margin: 10px; border: none; border-radius: 16px;
+                width: 100%; max-width: 340px; padding: 18px; margin: 8px 0; border: none; border-radius: 16px;
                 font-size: 16px; font-weight: 600; color: white; cursor: pointer; transition: all 0.25s ease;
                 display: flex; align-items: center; justify-content: center; gap: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             }
-            .btn-menu-alimentos { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
-            .btn-menu-calcados { background: linear-gradient(135deg, var(--francal-red), #b91c1c); }
+            .btn-menu:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 28px rgba(244, 114, 182, 0.25);
+            }
+            .btn-menu-alimentos { background: linear-gradient(135deg, #db2777, #9d174d); }
+            .btn-menu-calcados { background: linear-gradient(135deg, #be185d, #831843); }
 
             /* Botão Voltar Clean */
             .btn-voltar {
@@ -151,7 +195,14 @@
         </div>
 
         <div id="tela-selecao">
-            <img src="https://images.uncyc.org/pt/thumb/8/8e/Francal_Logo.png/200px-Francal_Logo.png" style="max-width:140px; margin-bottom:20px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));" onerror="this.style.display='none'">
+            <img src="https://images.uncyc.org/pt/thumb/8/8e/Francal_Logo.png/200px-Francal_Logo.png" style="max-width:140px; margin-bottom:15px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));" onerror="this.style.display='none'">
+
+            <div class="outubro-rosa-banner">
+                <i class="fa-solid fa-ribbon laco-icon"></i>
+                <h2>Outubro Rosa</h2>
+                <p>Nós apoiamos essa causa! Cuide-se, previna-se e faça seus exames regularmente. O diagnóstico precoce salva vidas.</p>
+            </div>
+
             <h1>Painel Corporativo</h1>
             <p>Selecione um dos catálogos integrados da Francal</p>
             <button class="btn-menu btn-menu-alimentos" onclick="abrirCatalogo('alimentos')">
