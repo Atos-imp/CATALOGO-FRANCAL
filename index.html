@@ -26,8 +26,6 @@
                 --border-color: #e2e8f0;
                 --francal-blue: #101a35;
                 --francal-red: #e62328;
-                --outubro-rosa-primary: #d63384;
-                --outubro-rosa-dark: #881337;
             }
 
             body.tema-calcados {
@@ -45,66 +43,55 @@
                 padding-bottom: 100px;
             }
 
-            /* Tela de Seleção Inicial - Tema Outubro Rosa */
+            /* Tela de Seleção Inicial Elegante com Tema Novembro Azul */
             #tela-selecao {
                 display: flex; flex-direction: column; align-items: center; justify-content: center;
-                min-height: 100vh; 
-                background: radial-gradient(circle, #4a1228 0%, #1e0510 100%); 
-                padding: 20px; text-align: center;
-                position: relative;
-            }
-            #tela-selecao h1 { 
-                color: white; margin-bottom: 6px; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;
-            }
-            #tela-selecao p {
-                color: #fbcfe8; margin-bottom: 25px; font-size: 15px;
+                min-height: 100vh; background: radial-gradient(circle, #0f2b46 0%, #060e1d 100%); padding: 30px 20px; text-align: center;
             }
 
-            /* Card da Mensagem do Outubro Rosa */
-            .outubro-rosa-banner {
-                background: rgba(255, 255, 255, 0.08);
-                border: 1px solid rgba(244, 114, 182, 0.3);
-                backdrop-filter: blur(12px);
+            .novembro-azul-card {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(0, 212, 255, 0.25);
                 border-radius: 20px;
-                padding: 20px 24px;
-                max-width: 420px;
+                padding: 24px;
+                max-width: 440px;
+                width: 100%;
                 margin-bottom: 30px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                backdrop-filter: blur(12px);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             }
-            .outubro-rosa-banner .laco-icon {
-                font-size: 38px;
-                color: #f472b6;
+            .novembro-azul-card .icone-laco {
+                color: #00d4ff;
+                font-size: 28px;
                 margin-bottom: 10px;
-                display: inline-block;
-                filter: drop-shadow(0 2px 8px rgba(244,114,182,0.5));
             }
-            .outubro-rosa-banner h2 {
-                color: #fce7f3;
+            .novembro-azul-card h2 {
+                color: #ffffff;
                 font-size: 18px;
                 font-weight: 700;
                 margin: 0 0 8px 0;
-                text-transform: uppercase;
-                letter-spacing: 1px;
+                letter-spacing: 0.5px;
             }
-            .outubro-rosa-banner p {
-                color: #fbcfe8;
+            .novembro-azul-card p {
+                color: #cbd5e1;
                 font-size: 13px;
                 line-height: 1.5;
                 margin: 0;
             }
 
-            /* Botões do Menu */
+            #tela-selecao h1 { 
+                color: white; margin-bottom: 6px; font-size: 26px; font-weight: 700; letter-spacing: -0.5px;
+            }
+            #tela-selecao > p {
+                color: #94a3b8; margin-bottom: 24px; font-size: 14px;
+            }
             .btn-menu {
-                width: 100%; max-width: 340px; padding: 18px; margin: 8px 0; border: none; border-radius: 16px;
-                font-size: 16px; font-weight: 600; color: white; cursor: pointer; transition: all 0.25s ease;
-                display: flex; align-items: center; justify-content: center; gap: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+                width: 100%; max-width: 320px; padding: 18px; margin: 8px; border: none; border-radius: 16px;
+                font-size: 15px; font-weight: 600; color: white; cursor: pointer; transition: all 0.25s ease;
+                display: flex; align-items: center; justify-content: center; gap: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             }
-            .btn-menu:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 12px 28px rgba(244, 114, 182, 0.25);
-            }
-            .btn-menu-alimentos { background: linear-gradient(135deg, #db2777, #9d174d); }
-            .btn-menu-calcados { background: linear-gradient(135deg, #be185d, #831843); }
+            .btn-menu-alimentos { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+            .btn-menu-calcados { background: linear-gradient(135deg, var(--francal-red), #b91c1c); }
 
             /* Botão Voltar Clean */
             .btn-voltar {
@@ -195,12 +182,12 @@
         </div>
 
         <div id="tela-selecao">
-            <img src="https://images.uncyc.org/pt/thumb/8/8e/Francal_Logo.png/200px-Francal_Logo.png" style="max-width:140px; margin-bottom:15px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));" onerror="this.style.display='none'">
+            <img src="https://images.uncyc.org/pt/thumb/8/8e/Francal_Logo.png/200px-Francal_Logo.png" style="max-width:130px; margin-bottom:16px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));" onerror="this.style.display='none'">
 
-            <div class="outubro-rosa-banner">
-                <i class="fa-solid fa-ribbon laco-icon"></i>
-                <h2>Outubro Rosa</h2>
-                <p>Nós apoiamos essa causa! Cuide-se, previna-se e faça seus exames regularmente. O diagnóstico precoce salva vidas.</p>
+            <div class="novembro-azul-card">
+                <div class="icone-laco"><i class="fa-solid fa-ribbon"></i></div>
+                <h2>Novembro Azul</h2>
+                <p>A Francal apoia esta causa. Cuidar da saúde também é questão de atitude. Previna-se, informe-se e apoie a campanha de conscientização sobre a saúde do homem.</p>
             </div>
 
             <h1>Painel Corporativo</h1>
